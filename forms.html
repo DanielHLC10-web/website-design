@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Doctors appointment</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>My personal appointments</legend><br>
+            <label>What is your name</label><br>
+            <input type="text" placeholder="Enter your name"><br><br>
+            <label>Enter your Patient ID</label><br>
+            <input type="password" placeholder="Enter your ID"><br><br>
+            <label>Enter your date of birth</label><br>
+            <input type="date">
+        </fieldset>
+
+        <fieldset>
+            <legend>Your visit</legend>
+            <label>Choose your specialist doctor</label><br><br>
+            <select>
+                <option value=""> -- Select your Doctor--</option>
+                <option value="Dr Kim-Eye"> Dr Kim-Eye </option>
+                <option value="Dr Chiew-GP"> Dr Chiew-GP</option>
+                <option value="Dr White-neurologist">Dr White-neurologist</option>
+
+         </select><br>
+         <label>Why you are visiting</label><br>
+         <input type="radio" name="reason"> Nerve problem <br>
+         <input type="radio" name="reason"> General checkup<br>
+         <input type="radio" name="reason"> Eye problem<br>
+         <input type="radio" name="reason"> Other<br><br>
+
+         <label>Any notes for the doctor</label><br>
+         <textarea rows="5" cols="50" >
+            
+         </textarea>
+
+        </fieldset>
+        <fieldset>
+            <legend>Your perferable day</legend>
+            <label>Select your day</label><br>
+            <input type="checkbox"> Monday <br>
+            <input type="checkbox"> Tuesday <br>
+            <input type="checkbox"> Wednesday <br>
+            <input type="checkbox"> Thursday <br>
+            <input type="checkbox"> Friday <br>
+            <input type="checkbox"> Saturday <br>
+            <input type="checkbox"> Sunday <br>
+
+        </fieldset>
+        <input type="submit" value="Submit your appointment">
+    </form>
+    
+</body>
+</html>
