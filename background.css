@@ -1,0 +1,37 @@
+body{
+    background-color: navy;
+    background-image: linear-gradient(to right,orange, rgb(223, 85, 85));
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-repeat:no-repeat;
+    background-position: top center;
+
+}
+.pg-name{
+   background-image: linear-gradient( to bottom,rgb(124, 30, 124),rgb(13, 12, 90),rgba(29, 0, 67, 0.818));
+   border-radius: radius 20px;
+   text-align: justify;
+   color: antiquewhite;
+
+
+}
+.space-body{
+    background-color: slateblue;
+    color: beige;
+    border-radius: 15px;
+}
+.star{
+    width:50px;
+    height:55px;
+    background-color: rgb(226, 250, 133);
+    border-radius: 60%;
+    animation: twinkle 0.5s infinite alternate;
+    margin-left: 45%;
+}
+@keyframes twinkle{
+   from {background-color: rgb(226, 250, 133);}    
+   to{background-color: aliceblue;} 
+}
+.footer{
+    color: darkorchid;
+    text-align: center;
+}
