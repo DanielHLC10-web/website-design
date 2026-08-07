@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Ice Cream Shop Menu</title>
+  <style>
+    body{
+      font-family: cursive;
+      background-color: #FFC5D9;
+      text-align: center;
+      color: #7B3F00;
+
+    }
+
+    h1{
+        font-size: 36px;
+    }
+    h1+p{
+        font-weight: bold;
+        border-radius: 20px;
+        width:200px;
+        background-color: #deffef;
+        padding: 1%;
+        margin-left: 35%;
+    }
+    .shop-description::first-letter{
+        font-weight: bold;
+        font-size: 30px;
+        text-shadow:3px 3px #B76E79;
+
+    }
+    .menu-box{
+        border: #deffef 3px solid;
+        border-radius: 20px;
+        padding: 20px;
+        width: 420px;
+        margin: 20px auto;
+        
+    }
+
+    ul>li{
+        border: 3px solid ;
+        margin: 10px;
+        border-radius: 20px;
+        background-color: bisque;
+        list-style: none;
+        font-size: 20px;
+        padding: 3%;
+    }
+    ul>li:hover{
+        transform: scale(1.05);
+        background-color: #FFC5D9;
+        color: crimson ;
+        cursor: pointer;
+    }
+    ul>li:nth-child(3){
+        border: #0041C2 5px dashed;
+        color: whitesmoke;
+        background: radial-gradient(circle at top left, #00d2ff 0%, #3a7bd5 60%, #1e1b4b 100%);
+
+    }
+
+    button {
+      background-color: #d63384;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-left: 5%;
+    }
+
+    button:hover {
+      background-color: #8a2be2;
+      ;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Ice Cream Shop Menu</h1>
+  <p>Scoops of heaven!</p>
+  <p class="shop-description">
+    We serve the best ice cream in the city.
+  </p>
+  <div class="menu-box">
+    <h2>Today's Ice Cream Flavours</h2>
+    <ul>
+      <li>Chocolate Fudge</li>
+      <li>Strawberry Sorbet</li>
+      <li>Blueberry Faygo - Today's Special</li>
+      <li>Vanilla swirl</li>
+      <li>Rocky Rainbow Road</li>
+    </ul>
+    <button>Order Now</button>
+  </div>
+</body>
+</html>
