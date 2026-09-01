@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+
+<h1>Simple Calculator</h1>
+<p>Perform all Operations using JavaScript</p>
+<p id="add"></p>
+<p id="sub"></p>
+<p id="mul"></p>
+<p id="div"></p>
+<p id="mod"></p>
+
+
+<script>
+    var x,y,a,s,m,d,r;
+    x=5;
+    y=20;
+    a=x+y;
+    s=y-x;
+    m=y*x;
+    d=y/x;
+    r=y%x;
+
+    document.getElementById("add").innerHTML =
+"The added value is: " + a;
+document.getElementById("sub").innerHTML =
+"The subtracted value is: " + s;
+document.getElementById("mul").innerHTML =
+"The multiplied value is: " + m;
+document.getElementById("div").innerHTML =
+"The divided value is: " + d;
+document.getElementById("mod").innterHTML=
+"the modulus value is : " + r </script>
+</body>
+</html>
