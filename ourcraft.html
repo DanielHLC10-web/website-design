@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <style>
+.craft-section {
+    padding: 100px 0;
+    background: #121212;
+    position: relative;
+}
+
+.section-title-sub {
+    color: #b71c1c;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: #ffc107;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.craft-lead-text {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.craft-text {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.craft-card {
+    background: #191919;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid #b71c1c;
+    padding: 25px;
+    border-radius: 4px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.craft-card:hover {
+    border-left-color: #ffc107;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.craft-card-icon {
+    font-size: 2rem;
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+
+.craft-card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.craft-card-desc {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.craft-image-frame {
+    position: relative;
+    padding: 12px;
+    border: 1px solid #333333;
+    background: #181818;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.craft-image-frame img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.craft-image-frame::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid #ffc107;
+    border-left: 2px solid #ffc107;
+}
+
+.craft-image-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    border-bottom: 2px solid #ffc107;
+    border-right: 2px solid #ffc107;
+}
+</style>
+</head>
+<body>
+    
+<section id="our-craft" class="craft-section">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="section-title-sub">Artistry & Tradition</div>
+                <h2 class="section-title">THE CRAFT OF FIRE & CHILI</h2>
+                <p class="craft-lead-text">
+                    At Spice Temple, culinary mastery lies in balancing the intense heat of regional Chinese spice with delicate, fragrant aromatics.
+                </p>
+                <p class="craft-text">
+                    Rooted in ancient techniques from Sichuan, Yunnan, Hunan, and Jiangxi, our kitchen celebrates the legendary <em>Wok Hei</em>—the breath of the wok. Every dish is orchestrated to evoke texture, temperature, and deep complexity.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="craft-image-frame">
+                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1000&q=80" alt="Chinese Culinary Craftsmanship">
+                </div>
+            </div>
+        </div>
+
+        <!-- Pillars of Craft Cards -->
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4">
+                <div class="craft-card">
+                    <div class="craft-card-icon">&#128293;</div>
+                    <h3 class="craft-card-title">Breath of the Wok</h3>
+                    <p class="craft-card-desc">Mastering extreme heat to achieve authentic wok hei, searing ingredients instantly to lock in fresh flavors and smoky aromas.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="craft-card">
+                    <div class="craft-card-icon">&#127808;</div>
+                    <h3 class="craft-card-title">Sichuan Peppercorns</h3>
+                    <p class="craft-card-desc">Sourced directly from the mountains of Sichuan to deliver the authentic, tingling <em>Málà</em> sensation essential to our signature dishes.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="craft-card">
+                    <div class="craft-card-icon">&#127863;</div>
+                    <h3 class="craft-card-title">Artisanal Oils</h3>
+                    <p class="craft-card-desc">Infused in-house daily with hand-selected chilies, star anise, cinnamon, and Sichuan peppercorns for unmistakable depth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
