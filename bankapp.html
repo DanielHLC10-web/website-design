@@ -1,23 +1,243 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dani's Bank App</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts - Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Modern Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f8fafc;
+      padding: 1rem;
+    }
+
+    /* Main App Container with Glassmorphism */
+    #app {
+      width: 100%;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                  0 0 40px rgba(16, 185, 129, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative background glowing orb */
+    #app::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      background: rgba(16, 185, 129, 0.15);
+      border-radius: 50%;
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    /* Title Styling */
+    #app-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.75rem;
+      background: linear-gradient(135deg, #ffffff 30%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    /* Balance Box Styling */
+    #balance-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+      transition: all 0.3s ease;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    }
+
+    #balance-box:hover {
+      border-color: rgba(52, 211, 153, 0.3);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1),
+                  0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #balance-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+
+    #balance {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #34d399;
+      text-shadow: 0 0 20px rgba(52, 211, 153, 0.2);
+    }
+
+    #balance::before {
+      content: '$';
+      font-weight: 600;
+      margin-right: 0.1rem;
+      opacity: 0.9;
+    }
+
+    
+    #entry-box {
+      margin-bottom: 1.5rem;
+    }
+
+    #amount-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      margin-bottom: 0.5rem;
+    }
+
+    #amount {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 0.85rem 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #ffffff;
+      outline: none;
+      transition: all 0.25s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    #amount::placeholder {
+      color: #64748b;
+    }
+
+    #amount:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #34d399;
+      box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.15);
+    }
+
+    /* Hide number input spinners for clean look */
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+
+    /* Button Box Styling */
+    #button-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .action {
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .action.credit {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      color: #ffffff;
+    }
+
+    .action.credit:hover {
+      background: linear-gradient(135deg, #047857 0%, #059669 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+    }
+
+    .action.debit {
+      background: linear-gradient(135deg, #e11d48 0%, #f43f5e 100%);
+      color: #ffffff;
+    }
+
+    .action.debit:hover {
+      background: linear-gradient(135deg, #be123c 0%, #e11d48 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(244, 63, 94, 0.3);
+    }
+
+    .action:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Message & Note Styling */
+    #message {
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-align: center;
+      min-height: 1.25rem;
+      margin-bottom: 1rem;
+      color: #94a3b8;
+    }
+
+    #note {
+      font-size: 0.7rem;
+      text-align: center;
+      color: #64748b;
+      letter-spacing: 0.025em;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 1rem;
+    }
+  </style>
 </head>
 <body>
 
   <div id="app">
 
-    <h1 id="app-title">Dani's bank</h1>
+    <h1 id="app-title">Dani's Bank</h1>
 
     <div id="balance-box">
       <p id="balance-label">Available balance</p>
-      <p id="balance">1000</p>
+      <p id="balance">1000.00</p>
     </div>
 
     <div id="entry-box">
       <label id="amount-label" for="amount">Enter amount</label>
-      <input type="number" id="amount" placeholder="0">
+      <input type="number" id="amount" placeholder="0.00" step="any" min="0">
     </div>
 
     <div id="button-box">
@@ -25,8 +245,8 @@
       <button class="action debit" id="debit-btn">Debit</button>
     </div>
 
-    <p id="message"></p>
-    <p id="note">Terms and conditions apply &copy</p>
+    <p id="message">Secure Neo-Banking Experience</p>
+    <p id="note">Terms and conditions apply &copy; 2026</p>
 
   </div>
 
