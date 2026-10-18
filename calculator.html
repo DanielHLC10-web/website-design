@@ -4,90 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <style>
-        *{
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body{
-            background-color: #1e293b;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height:100vh;
-            padding: 15px;
+    <style>@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-        }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Share Tech Mono', monospace;
+}
 
-        .calculator{
-            background-color: cornflowerblue;
-            padding: 20px;
-            border: 4px solid cornsilk;
-            border-radius: 10px;
-            max-width:380px ;
-            width: 100%;
-            box-shadow: 0px 10px 25px ;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle at center, #001e3d 0%, #000913 100%);
+}
 
-        }
-        h2{
-            color:aliceblue;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 40px;
-        }
-        #display{
-            width: 100%;
-            height: 70px;
-            margin-bottom: 20px;
-            padding: 15px;
-            text-align: right;
-            border: none;
-            border-radius: 10px;
-            color: cornflowerblue;
-        }
-        .buttons{
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap:10px;
-        }
-        button{
-            height: 60px;
-            font-size: 20px;
-            font-weight: bold;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            color: black;
-            
-        }
-        button:hover{
-            background-color: azure;
-            transform: scale(1.05);
-        }
-        button:active{
-            transform: scale(0.95);
-        }
-        .operator{
-            background-color: aquamarine;
-        }
-        .number{
-            background-color: aqua;
-        }
-        .equal{
-            grid-column: span 2;
-            background-color: darkslateblue;
-        }
-        .clear{
-            background-color: deepskyblue;
-        }
-        .delete{
-            background-color: dodgerblue;
-        }
-        .dot{
-            background-color: indigo;
-        }
+/* Neon Glow Calculator Container */
+.calculator {
+  background: transparent;
+  padding: 25px;
+  border-radius: 30px;
+  border: 3px solid #00f3ff;
+  box-shadow: 0 0 10px #00f3ff,
+              0 0 20px #00f3ff,
+              inset 0 0 10px #00f3ff,
+              inset 0 0 20px #00f3ff;
+  width: 320px;
+}
+
+/* Glowing Screen */
+#display {
+  width: 100%;
+  height: 65px;
+  background: transparent;
+  border: 2px solid #00f3ff;
+  border-radius: 12px;
+  font-size: 32px;
+  color: #00f3ff;
+  text-align: right;
+  padding: 0 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 0 8px #00f3ff, inset 0 0 8px #00f3ff;
+  letter-spacing: 2px;
+}
+
+#display::placeholder {
+  color: rgba(0, 243, 255, 0.4);
+}
+
+/* Button Grid Layout */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Neon Outline Buttons */
+button {
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid #00f3ff;
+  background: transparent;
+  color: #00f3ff;
+  box-shadow: 0 0 5px #00f3ff, inset 0 0 5px #00f3ff;
+  transition: all 0.15s ease-in-out;
+}
+
+/* Intense Glow on Hover */
+button:hover {
+  background: rgba(0, 243, 255, 0.15);
+  box-shadow: 0 0 12px #00f3ff,
+              0 0 25px #00f3ff,
+              inset 0 0 12px #00f3ff;
+}
+
+button:active {
+  background: rgba(0, 243, 255, 0.3);
+  transform: scale(0.96);
+}
+.equal{
+    grid-column: span 2;
+}
+       
 
 
 
@@ -123,16 +125,47 @@
 
     <script>
         function put(value){
-            document.getElementById("display").value+=value;
+          
+            let d=document.getElementById("display");
+            if (d.value==="error"){
+              d.value="";
+            }
+            d.value=d.value+value;
+            
+
         }
         function clearDisplay(){
-            document.getElementById("clear").value="";
+            document.getElementById("display").value="";
         };
         function deleteDisplay(){
-            let d=getElementById("display");
+            let d=document.getElementById("display");
             d.value=d.value.slice(0,-1)
         }
-        
+        function calculate(){
+          let d=document.getElementById("display");
+          try {
+            if (d.value===""){
+              return;
+            }
+            if (!/^[0-9+\-*/%.() ]+$/.test(d.value)){
+              d.value="Error";
+              return;
+            }
+            let result= Function("return ("+d.value+")")();
+            if(!Number.isFinite(result)){
+              d.value="error";
+            }else{d.value=result;}
+
+
+
+
+            }
+            catch(error){
+              d.value="error";
+
+          }
+        }
+
 
     </script>
     
